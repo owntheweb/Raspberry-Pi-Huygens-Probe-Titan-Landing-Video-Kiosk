@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Titan Landing Kiosk</title>
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<link href="css/kiosk.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="content">
+    <div id="controls">
+        <a class="btn" id="playpause" href="javascript:;">
+            <i class="fa fa-play fa-4x" id="playpauseicon"></i>
+        </a>
+
+        <a class="btn" id="forward" href="javascript:;">
+            <i class="fa fa-forward fa-4x"></i>
+        </a>
+
+        <a class="btn" id="backward" href="javascript:;">
+            <i class="fa fa-backward fa-4x"></i>
+        </a>
+
+        <a class="btn" id="rewind" href="javascript:;">
+            <i class="fa fa-fast-backward fa-4x"></i>
+        </a>
+
+        <div id="logo">
+            <img src="img/space-foundation-logo.png" alt="Space Foundation">
+        </div>
+    </div>
+
+    <video id="vid1" loop >
+        <source src="vid/titan-landing.mp4#t=3,280" type="video/mp4" />
+        <source src="vid/titan-landing.webm#t=3,280" type="video/webm" />
+    </video>
+</div>
+
+<script src="js/kiosk.js"></script>
+
+</body>
+</html>

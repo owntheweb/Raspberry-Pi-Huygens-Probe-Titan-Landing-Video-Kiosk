@@ -1,0 +1,52 @@
+/* at the moment, designed specifically for 800x480 Raspberry Pi trouch screen as a battery powered kiosk */
+* {
+    cursor: none;
+}
+
+body, html {
+    background: #000;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+video {
+    width: 632px;
+    height: 480px;  
+    float: left; 
+}
+
+#content {
+    width: 800px;
+    height: 480px;
+    background: #004291;
+}
+
+#controls {
+    float: right;
+    width: 168px;
+    text-align: center;
+}
+
+#logo {
+    
+}
+
+a.btn {
+    margin: 10px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid #4bc7ea 2px;
+    color: #4bc7ea;
+    display: block;
+}
+
+a.btn:focus {
+    color: #fff;
+    border: solid #fff 2px;
+    outline: none;
+}
