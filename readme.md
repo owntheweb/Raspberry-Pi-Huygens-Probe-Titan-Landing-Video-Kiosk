@@ -21,7 +21,7 @@ Designed for use with a Raspberry Pi and a touchscreen, the interface allows for
 
 #Raspberry Pi Hardware Setup
 
-See Raspberry Pi Touch Display instructions. Here's a video tutorial.
+See Raspberry Pi Touch Display instructions. [Here's a video tutorial](https://www.youtube.com/watch?v=tK-w-wDvRTg).
 
 #Install Raspbian with PIXEL
 
