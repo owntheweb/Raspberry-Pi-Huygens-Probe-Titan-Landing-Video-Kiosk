@@ -1,5 +1,7 @@
 #Raspberry Pi: Huygens Probe Titan Landing Video Kiosk
 
+![Kiosk Screenshot](https://github.com/owntheweb/huygens-pi-kiosk/raw/master/img/preview.jpg)
+
 Developed for the [Space Foundation Discovery Center](https://www.discoverspace.org), this touch screen kiosk features a full-screen video presentation of the [Huygens Probe](https://www.discoverspace.org/discover/el-pomar-space-gallery/huygens-probe) Titan landing on January 14, 2005.
 
 The video was provided courtesy of Erich Karkoschka, University of Arizona, the DISR Team, NASA and ESA, converted for use in this kiosk project. Copyright 2016 University of Arizona. The video files have been included in this repository for your convenience, but are not included as part of the license of this project.
