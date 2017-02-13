@@ -36,6 +36,36 @@ video {
     
 }
 
+#screensaver {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #000;
+    display: none;
+}
+
+#screensaverText {
+    color: #4bc7ea;
+    font-size: 20px;
+    display: block;
+    padding: 10px;
+    border: solid #4bc7ea 2px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -100px;
+    pointer-events: none;
+}
+
+#screensaver.visible {
+    display: block;
+}
+
 a.btn {
     margin: 10px 10px;
     padding: 10px;

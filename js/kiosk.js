@@ -7,18 +7,34 @@ window.onload = function(){
 		backwardBtn: {},
 		rewindBtn: {},
 		video: {},
+		screensaverCover: {},
+		screensaverText: {},
+		screensaverDelay: 300000,
 		screensaverTimer: {},
-		screensaverTimerInt: 0,
+		screensaverTextTimer: {},
+		screensaverTimerActive: false,
 
 		//get things started
 		init: function() {
 			var self = this;
 
+			//screensaver elements
+			self.screensaverCover = document.getElementById("screensaver");
+			self.screensaverText = document.getElementById("screensaverText");
+
+			//stop screensaver
+			self.screensaverCover.onclick = function(event) {
+				self.screensaverCover.className = '';
+				self.video.currentTime = 3;
+				clearInterval(self.screensaverTextTimer);
+				self.togglePlayPause();
+			};
+
 			//video element
 			self.video = document.getElementById("vid1");
 			self.video.onclick = function(event) {
 				self.togglePlayPause();
-			}
+			};
 
 			//when video has ended
 			self.video.addEventListener('ended', function(event) {
@@ -73,6 +89,7 @@ window.onload = function(){
 			var self = this;
 			if(self.state == 'playing') {
 				self.state = 'paused';
+				self.toggleScreensaverTimer();
 				console.log('pausing...');
 				self.video.pause();
 				setTimeout(function() {
@@ -81,12 +98,34 @@ window.onload = function(){
 				}, 150);
 			} else {
 				self.state = 'playing';
+				self.toggleScreensaverTimer();
 				console.log('playing...');
 				self.video.play();
 				setTimeout(function() {
 					self.playPauseIcon.className = 'fa fa-pause fa-4x';
 					self.playPauseBtn.blur();
 				}, 150);
+			}
+		}, 
+
+		//timed screensaver
+		toggleScreensaverTimer: function() {
+			var self = this;
+			if(self.screensaverTimerActive == false && self.state != 'playing') {
+				//start timer
+				self.screensaverTimer = setTimeout(function(){
+					self.screensaverCover.className = 'visible';
+				}, self.screensaverDelay);
+
+				//start random positioning of start text so not to burn still text into the screen over time
+				self.screensaverTextTimer = setInterval(function(){
+					self.screensaverText.style.top = (Math.random() * 60 + 20).toString() + "%";
+					self.screensaverText.style.left = (Math.random() * 60 + 20).toString() + "%";
+				}, 3000);
+
+			} else {
+				//cancel timer
+				clearTimeout(self.screensaverTimer);
 			}
 		}
 	};
