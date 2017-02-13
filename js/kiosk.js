@@ -7,6 +7,8 @@ window.onload = function(){
 		backwardBtn: {},
 		rewindBtn: {},
 		video: {},
+		screensaverTimer: {},
+		screensaverTimerInt: 0,
 
 		//get things started
 		init: function() {
@@ -14,6 +16,16 @@ window.onload = function(){
 
 			//video element
 			self.video = document.getElementById("vid1");
+			self.video.onclick = function(event) {
+				self.togglePlayPause();
+			}
+
+			//when video has ended
+			self.video.addEventListener('ended', function(event) {
+				//rewind video
+				self.video.currentTime = 3;
+				self.togglePlayPause();
+			}, false);
 
 			//play/pause button
 			self.playPauseBtn = document.getElementById("playpause");
@@ -31,7 +43,7 @@ window.onload = function(){
 				}, 150);
 			}
 
-			//forward button, moves forward 10 seconds
+			//backward button, moves backward 10 seconds
 			self.backwardBtn = document.getElementById("backward");
 			self.backwardBtn.onfocus = function(event) {
 				self.video.currentTime -= 10;
@@ -40,7 +52,7 @@ window.onload = function(){
 				}, 150);
 			}
 
-			//forward button, moves forward 10 seconds
+			//rewind button, moves to the beginning
 			self.rewindBtn = document.getElementById("rewind");
 			self.rewindBtn.onfocus = function(event) {
 				self.video.currentTime = 3;
