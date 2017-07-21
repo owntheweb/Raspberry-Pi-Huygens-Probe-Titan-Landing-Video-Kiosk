@@ -134,6 +134,10 @@ Reboot to see the results:
 
 `sudo shutdown -h now`
 
+#OPTIONAL: Enable USB Audio
+
+The Space Foundation's version of this kiosk uses a [small USB speaker from Adafruit](https://www.adafruit.com/product/3369), allowing it to be powered by the Pi. To enable audio output via USB, follow [Adafruit's instructions here](https://learn.adafruit.com/usb-audio-cards-with-a-raspberry-pi/updating-alsa-config).
+
 #Special Thanks
 
 Special thanks goes to the [Space Foundation](https://www.spacefoundation.org) and the [Space Foundation Education](https://www.discoverspace.org) team. Required hardware was provided for the development of this kiosk, along with a new team volunteer benefit, allowing Space Foundation team members to allot monthly volunteer time towards a non-profit of choice (in this case same non-profit, education department).
