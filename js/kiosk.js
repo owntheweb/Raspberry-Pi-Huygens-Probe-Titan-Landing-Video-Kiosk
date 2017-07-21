@@ -1,5 +1,6 @@
 window.onload = function(){
 	var player = {
+		volume: 0.1, //It's LOUD on tested USB speaker. Edit to taste.
 		state: 'init',
 		playPauseBtn: {},
 		playPauseIcon: {},
@@ -32,6 +33,7 @@ window.onload = function(){
 
 			//video element
 			self.video = document.getElementById("vid1");
+            self.video.volume = self.volume;
 			self.video.onclick = function(event) {
 				self.togglePlayPause();
 			};
