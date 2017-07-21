@@ -134,9 +134,54 @@ Reboot to see the results:
 
 `sudo shutdown -h now`
 
+# Recovery Plan
+
+After confirming all works well, make a backup of the Pi image for faster recovery if the disk becomes corrupt (a common eventuality, especially without a safe shutdown). 
+
+Remove the disk from the Pi and insert to a computer (Mac in this case).
+
+Find the inserted disk (see top instructions for details in identifying):
+
+`diskutil list`
+
+Unmount the disk (disk2 in this example):
+
+`diskutil unmountDisk /dev/disk2`
+
+Save a local image of the disk:
+
+`sudo dd if=/dev/rdisk2 of=~/Desktop/huygensProbeKiosk.dmg bs=4m`
+
+Enter your desktop login password if prompted for it.
+
+Wait for a while. Go for a walk. When finished, save the .img file where it can be found again months later.
+
+After all is complete, eject the "boot" drive in Mac OS, take out the SD card,
+
+# Recover or Replicate Kiosk Image
+Insert a disk to the Mac. Then, look under NAME and SIZE to verify correct volume.
+
+`diskutil list`
+
+Unmount the correct volume (make sure to edit the following to match):
+
+`diskutil unmountDisk /dev/disk2`
+
+Format the SD card as FAT16 (again, remember to edit the following 'disk2' to prevent a bad day).
+
+`sudo newfs_msdos -F 16 /dev/disk2`
+
+Restore/clone/transfer the image to the SD card.
+
+`sudo dd bs=4m if=~/Desktop/huygensProbeKiosk.dmg of=/dev/rdisk2`
+
 # OPTIONAL: Enable USB Audio
 
 The Space Foundation's version of this kiosk uses a [small USB speaker from Adafruit](https://www.adafruit.com/product/3369), allowing it to be powered by the Pi. To enable audio output via USB, follow [Adafruit's instructions here](https://learn.adafruit.com/usb-audio-cards-with-a-raspberry-pi/updating-alsa-config).
+
+# OPTIONAL: Install Safe Shutdown Switch
+
+The Space Foundation's version of this kiosk uses a [shutdown switch with rocker](https://www.mausberrycircuits.com/collections/frontpage/products/shutdown-switch-with-rocker). [Follow install instructions here](https://www.mausberrycircuits.com/pages/setup).
 
 # Special Thanks
 
