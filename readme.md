@@ -1,4 +1,4 @@
-#Raspberry Pi: Huygens Probe Titan Landing Video Kiosk
+# Raspberry Pi: Huygens Probe Titan Landing Video Kiosk
 
 ![Kiosk Screenshot](https://github.com/owntheweb/huygens-pi-kiosk/raw/master/img/preview.jpg)
 
@@ -12,18 +12,18 @@ Designed for use with a Raspberry Pi and a touchscreen, the interface allows for
 
 **NOTE:** This readme file is still a wok-in-progress. Post an issue if there are questions!
 
-#Ingredients
+# Ingredients
 
 - Raspberry Pi 2B or 3 (tested with a 3B)
 - [Raspberry Pi Touch Display](https://www.raspberrypi.org/blog/the-eagerly-awaited-raspberry-pi-display/)
 - 10 speed micro sd card
 - Power supply
 
-#Raspberry Pi Hardware Setup
+# Raspberry Pi Hardware Setup
 
 See Raspberry Pi Touch Display instructions. [Here's a video tutorial](https://www.youtube.com/watch?v=tK-w-wDvRTg).
 
-#Install Raspbian with PIXEL
+# Install Raspbian with PIXEL
 
 Install Raspbian Jessie with PIXEL (or the latest Raspbian) to Micro SD Card (installed via a Mac in this example). See additional installation guidelines [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
@@ -86,7 +86,7 @@ Just let it run.
 
 When finished, eject the disk from Mac (it will get mounted as “boot”), and insert it into the Pi. Plug in a USB keyboard, USB mouse, then turn on the Pi by plugging in its power cord. The Pi should boot, working with the Pi touchscreen right away.
 
-#Configure Raspbian
+# Configure Raspbian
 
 Configure the Pi with raspi-config
 
@@ -106,11 +106,11 @@ Force audio to use the headphone jack as the Huygens probe landing video has gre
 
 Go back to the main screen and select "<Finish>", then choose "<Yes>" to reboot.
 
-#Transfer Kiosk Files To the Pi
+# Transfer Kiosk Files To the Pi
 
 To be continued... [transfer via USB drive or SSH]
 
-#Auto-Launch Huygens Kiosk Once Booted
+# Auto-Launch Huygens Kiosk Once Booted
 
 Make the kiosk hassle free by auto-launching Chromium full-screen in kiosk mode after the Pi has booted.
 
@@ -134,10 +134,10 @@ Reboot to see the results:
 
 `sudo shutdown -h now`
 
-#OPTIONAL: Enable USB Audio
+# OPTIONAL: Enable USB Audio
 
 The Space Foundation's version of this kiosk uses a [small USB speaker from Adafruit](https://www.adafruit.com/product/3369), allowing it to be powered by the Pi. To enable audio output via USB, follow [Adafruit's instructions here](https://learn.adafruit.com/usb-audio-cards-with-a-raspberry-pi/updating-alsa-config).
 
-#Special Thanks
+# Special Thanks
 
 Special thanks goes to the [Space Foundation](https://www.spacefoundation.org) and the [Space Foundation Education](https://www.discoverspace.org) team. Required hardware was provided for the development of this kiosk, along with a new team volunteer benefit, allowing Space Foundation team members to allot monthly volunteer time towards a non-profit of choice (in this case same non-profit, education department).
