@@ -106,9 +106,20 @@ Force audio to use the headphone jack as the Huygens probe landing video has gre
 
 Go back to the main screen and select "<Finish>", then choose "<Yes>" to reboot.
 
-# Transfer Kiosk Files To the Pi
+# Transfer Kiosk Files To the Pi (needs tested)
 
-To be continued... [transfer via USB drive or SSH]
+Ensure the Pi is plugged into an internet-connected ethernet cable.
+
+Install Git to clone this repository to the Pi:
+
+`sudo apt-get install git-all`
+
+Clone the repository:
+
+```
+cd ~/
+git clone https://github.com/owntheweb/huygens-pi-kiosk.git
+```
 
 # Auto-Launch Huygens Kiosk Once Booted
 
@@ -125,7 +136,7 @@ Delete or comment out all lines shown, then add:
 @xset s off
 @xset -dpms
 @xset s noblank
-@chromium-browser --incognito --kiosk file:///home/pi/pi-touchscreen/index.html
+@chromium-browser --incognito --kiosk file:///home/pi/huygens-pi-kiosk/index.html
 ```
 
 Type Ctrl+X to close and hit return to save.
@@ -159,6 +170,7 @@ Wait for a while. Go for a walk. When finished, save the .img file where it can 
 After all is complete, eject the "boot" drive in Mac OS, take out the SD card,
 
 # Recover or Replicate Kiosk Image
+
 Insert a disk to the Mac. Then, look under NAME and SIZE to verify correct volume.
 
 `diskutil list`
@@ -185,4 +197,4 @@ The Space Foundation's version of this kiosk uses a [shutdown switch with rocker
 
 # Special Thanks
 
-Special thanks goes to the [Space Foundation](https://www.spacefoundation.org) and the [Space Foundation Education](https://www.discoverspace.org) team. Required hardware was provided for the development of this kiosk, along with a new team volunteer benefit, allowing Space Foundation team members to allot monthly volunteer time towards a non-profit of choice (in this case same non-profit, education department).
+Special thanks goes to the [Space Foundation](https://www.spacefoundation.org) and the [Space Foundation Education](https://www.discoverspace.org) team. Required hardware was provided for the development of this kiosk, along with a new team volunteer benefit that allows Space Foundation team members to allot monthly volunteer time towards a non-profit of choice (in this case same non-profit, education department).
