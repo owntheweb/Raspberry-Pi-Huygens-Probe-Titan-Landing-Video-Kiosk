@@ -82,6 +82,9 @@ window.onload = function(){
 				}, 150);
 			}
 
+      // hide cursor
+      document.body.style.cursor = 'none'
+
 			//start the video loop
 			self.playPauseBtn.focus();
 		},
@@ -108,7 +111,7 @@ window.onload = function(){
 					self.playPauseBtn.blur();
 				}, 150);
 			}
-		}, 
+		},
 
 		//timed screensaver
 		toggleScreensaverTimer: function() {
