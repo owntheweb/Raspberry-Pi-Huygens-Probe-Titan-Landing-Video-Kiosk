@@ -1,6 +1,6 @@
 /* at the moment, designed specifically for 800x480 Raspberry Pi trouch screen as a battery powered kiosk */
 * {
-    cursor: none;
+  cursor: none !important;
 }
 
 body, html {
@@ -16,8 +16,8 @@ body, html {
 
 video {
     width: 632px;
-    height: 480px;  
-    float: left; 
+    height: 480px;
+    float: left;
 }
 
 #content {
@@ -33,7 +33,7 @@ video {
 }
 
 #logo {
-    
+
 }
 
 #screensaver {
