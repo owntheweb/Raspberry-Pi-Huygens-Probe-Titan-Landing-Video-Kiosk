@@ -23,7 +23,7 @@ Designed for use with a Raspberry Pi and a touchscreen, the interface allows for
 
 See Raspberry Pi Touch Display instructions. [Here's a video tutorial](https://www.youtube.com/watch?v=tK-w-wDvRTg).
 
-## Install Raspbian
+# Install Raspbian
 
 Download Raspbian (lite version) .zip at https://www.raspberrypi.org/downloads/ and unzip.
 
@@ -37,13 +37,11 @@ Open the Terminal, then:
 
 `sudo raspi-config`
 
-Expand the filesystem to fill the micro-sd card, so that it can fit the Huygens landing video. Choose "1 Expand Filesystem", then "<Ok>" when finished.
+It's important to change the password for security purposes. Choose "1 Change User Password", then "<Ok>", then follow the prompts.
 
-It's important to change the password for security purposes. Choose "2 Change User Password", then "<Ok>", then follow the prompts.
+Move to the advanced options screen. Choose "2 Networking Options".
 
-Move to the advanced options screen. Choose "7 Advanced Options".
-
-Change the hostname to something other than raspberrypi if connecting to the network (your IT team will thank you). Choose "A2 Hostname", then enter a new name that describes this Pi e.g. "huygens-probe-kiosk".
+Change the hostname to something other than raspberrypi if connecting to the network (your IT team will thank you). Choose "N1 Hostname", then enter a new name that describes this Pi e.g. "huygens-probe-kiosk".
 
 Force audio to use the headphone jack as the Huygens probe landing video has great sound. Choose "A9 Audio", then "1 Force 3.5mm ('headphone') jack". Select "<Ok>".
 
