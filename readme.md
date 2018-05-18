@@ -23,68 +23,11 @@ Designed for use with a Raspberry Pi and a touchscreen, the interface allows for
 
 See Raspberry Pi Touch Display instructions. [Here's a video tutorial](https://www.youtube.com/watch?v=tK-w-wDvRTg).
 
-# Install Raspbian with PIXEL
+## Install Raspbian
 
-Install Raspbian Jessie with PIXEL (or the latest Raspbian) to Micro SD Card (installed via a Mac in this example). See additional installation guidelines [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
+Download Raspbian (lite version) .zip at https://www.raspberrypi.org/downloads/ and unzip.
 
-Download Raspbian .zip at https://www.raspberrypi.org/downloads/ and unzip.
-
-Insert the disk that will be used the Pi (via USB or disk port [update with proper names]) In terminal:
-
-`diskutil list`
-
-```
-/dev/disk0
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *500.3 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:                  Apple_HFS Macintosh HD            249.0 GB   disk0s2
-   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
-   4:       Microsoft Basic Data 
-```
-
-Then insert disk to format and compare:
-
-`diskutil list`
-
-```
-/dev/disk0
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *500.3 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:                  Apple_HFS Macintosh HD            249.0 GB   disk0s2
-   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
-   4:       Microsoft Basic Data                         130.1 GB   disk0s4
-/dev/disk2
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:     FDisk_partition_scheme                        *15.6 GB    disk2
-   1:             Windows_FAT_32 boot                    58.7 MB    disk2s1
-   2:                      Linux                         7.8 GB     disk2s2
-```
-
-disk2 is the inserted disk in this case.
-
-Unmount that disk (change “2” to inserted disk!):
-
-`diskutil unmountDisk /dev/disk2`
-
-Burn image to disk (change “2” to inserted disk, and update .img name/location):
-
-`sudo dd bs=4m if=~/Downloads/2017-01-11-raspbian-jessie.img of=/dev/disk2`
-
-Wait a very long time. Go make some coffee. Eat a snack (or even dinner). Go for a walk. Start watching a fascinating documentary. Don’t interrupt the process. ;)
-
-Tip: If you want to see what it’s doing, enter control+t in the terminal. It will give a quick line like “load: 2.73  cmd: dd 3344 uninterruptible 0.00u 5.27s”, then follow up after a short while with something like this:
-
-```
-115+0 records in
-114+0 records out
-478150656 bytes transferred in 10703.183951 secs (44674 bytes/sec)
-```
-
-Just let it run. 
-
-When finished, eject the disk from Mac (it will get mounted as “boot”), and insert it into the Pi. Plug in a USB keyboard, USB mouse, then turn on the Pi by plugging in its power cord. The Pi should boot, working with the Pi touchscreen right away.
+Insert the disk that will be used the Pi. Burn the downloaded image with [Etcher](https://etcher.io/), an app that makes burning images to disk simple.
 
 # Configure Raspbian
 
@@ -112,7 +55,7 @@ Ensure the Pi is plugged into an internet-connected ethernet cable.
 
 Install Git to clone this repository to the Pi:
 
-`sudo apt-get install git-all`
+`sudo apt-get install git`
 
 Clone the repository:
 
@@ -147,7 +90,7 @@ Reboot to see the results:
 
 # Recovery Plan
 
-After confirming all works well, make a backup of the Pi image for faster recovery if the disk becomes corrupt (a common eventuality, especially without a safe shutdown). 
+After confirming all works well, make a backup of the Pi image for faster recovery if the disk becomes corrupt (a common eventuality, especially without a safe shutdown).
 
 Remove the disk from the Pi and insert to a computer (Mac in this case).
 
@@ -167,25 +110,7 @@ Enter your desktop login password if prompted for it.
 
 Wait for a while. Go for a walk. When finished, save the .img file where it can be found again months later.
 
-After all is complete, eject the "boot" drive in Mac OS, take out the SD card,
-
-# Recover or Replicate Kiosk Image
-
-Insert a disk to the Mac. Then, look under NAME and SIZE to verify correct volume.
-
-`diskutil list`
-
-Unmount the correct volume (make sure to edit the following to match):
-
-`diskutil unmountDisk /dev/disk2`
-
-Format the SD card as FAT16 (again, remember to edit the following 'disk2' to prevent a bad day).
-
-`sudo newfs_msdos -F 16 /dev/disk2`
-
-Restore/clone/transfer the image to the SD card.
-
-`sudo dd bs=4m if=~/Desktop/huygensProbeKiosk.dmg of=/dev/rdisk2`
+After all is complete, eject the "boot" drive in Mac OS, take out the SD card. Use Etcher to install to a card as needed.
 
 # OPTIONAL: Enable USB Audio
 
