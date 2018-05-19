@@ -45,6 +45,8 @@ Change the hostname to something other than raspberrypi if connecting to the net
 
 Force audio to use the headphone jack as the Huygens probe landing video has great sound. Choose "A9 Audio", then "1 Force 3.5mm ('headphone') jack". Select "<Ok>".
 
+Add more memory to GPU by choosing "7 Advanced Options", then "A3 Memory Split". Revise 64 to 160 then choose "OK".
+
 Go back to the main screen and select "<Finish>", then choose "<Yes>" to reboot.
 
 # Transfer Kiosk Files To the Pi (needs tested)
@@ -66,6 +68,10 @@ git clone https://github.com/owntheweb/huygens-pi-kiosk.git
 
 Make the kiosk hassle free by auto-launching Chromium full-screen in kiosk mode after the Pi has booted.
 
+As CSS and JavaScript will NOT hide the mouse in chromium browser. Here's a work-around to be included with boot options further down:
+
+`sudo apt-get install unclutter`
+
 In the Pi terminal, open the autostart options file for edits:
 
 `sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart`
@@ -77,6 +83,7 @@ Delete or comment out all lines shown, then add:
 @xset s off
 @xset -dpms
 @xset s noblank
+@unclutter -idle 0.1
 @chromium-browser --incognito --kiosk file:///home/pi/huygens-pi-kiosk/index.html
 ```
 
@@ -84,7 +91,9 @@ Type Ctrl+X to close and hit return to save.
 
 Reboot to see the results:
 
-`sudo shutdown -h now`
+`sudo reboot`
+
+The first time chromium browser launches, a popup will show regarding DuckDuckGo. Press anywhere to close the message. The second time chromium browser launches, it will ask to become the default. That's ok, and you should not run into this again.
 
 # Recovery Plan
 
@@ -113,6 +122,12 @@ After all is complete, eject the "boot" drive in Mac OS, take out the SD card. U
 # OPTIONAL: Enable USB Audio
 
 The Space Foundation's version of this kiosk uses a [small USB speaker from Adafruit](https://www.adafruit.com/product/3369), allowing it to be powered by the Pi. To enable audio output via USB, follow [Adafruit's instructions here](https://learn.adafruit.com/usb-audio-cards-with-a-raspberry-pi/updating-alsa-config).
+
+# OPTIONAL: Hide low power warnings if screen and Pi are sharing power
+
+I'm /boot/config.txt, add this line:
+
+`avoid_warnings=1`
 
 # OPTIONAL: Install Safe Shutdown Switch
 
